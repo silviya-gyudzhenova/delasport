@@ -7,15 +7,15 @@ import org.openqa.selenium.WebElement;
 public class FavouritesPopUp {
     public WebDriver driver;
 
-    By FavouritesPopUpLocator = By.cssSelector("div#myCasinoModal > .modal-dialog.modal-dialog-centered.modal-dialog-scrollable.modal-lg");
+    String FavouritesPopUpCloseButtonLocator = "//div[@id='myCasinoModal']//button[@class='close']";
 
     public FavouritesPopUp(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void ClickCloseButton() {
-        WebElement FavouritesPopUp = driver.findElement(FavouritesPopUpLocator);
-        WebElement FavouritesPopUpCloseButton = FavouritesPopUp.findElement(By.cssSelector("div > div > button"));
-        FavouritesPopUpCloseButton.click();
+    public void ClickCloseButton()
+    {
+        WebElement button = driver.findElement(By.xpath(FavouritesPopUpCloseButtonLocator));
+        button.click();
     }
 }

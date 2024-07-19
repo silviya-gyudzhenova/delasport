@@ -2,6 +2,8 @@ package stepdefinitions;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -37,5 +39,11 @@ public class DelaSportStepDefinitions {
     public void iCloseAllThePopUps() {
         FavouritesPopUp favouritesPopUp = new FavouritesPopUp(driver);
         favouritesPopUp.ClickCloseButton();
+    }
+
+    @Then("User balance is {string}")
+    public void userBalanceIs(String balance) {
+        BabibetHomePage babibetHomePage = new BabibetHomePage(driver);
+        Assert.assertEquals("Balance from the screen is equal to " + balance + ".", balance, babibetHomePage.getUserBalance());
     }
 }

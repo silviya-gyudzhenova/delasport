@@ -7,3 +7,4 @@ Feature: DelaSport site functionality
           | username  | password |
           | betplayer | Pass112# |
     And I close all the pop-ups
+    Then User balance is "€0.00"
